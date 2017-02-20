@@ -16,14 +16,16 @@ app.use(express.static("public"))
 io.on("connection", (socket) => {
 	console.log("New user is online");
 
-socket.emit("newMessage", {
-	from: "ChatApp Server",
-	text: "Welcome to the ChatApp!",
-	createdAt: new Date().toString()
-});
 
 socket.on("createMessage", function (message){
 	console.log("Create Message", message);
+	
+	// Emit to everyone on the connection
+	io.emit("newMessage", {
+		from: message.from,
+		text: message.text,
+		createdAt: new Date()
+	});
 });
 
 
