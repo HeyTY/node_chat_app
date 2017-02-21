@@ -17,29 +17,22 @@ app.use(express.static("public"))
 io.on("connection", (socket) => {
 	console.log("New user is online");
 
-
-socket.on("createMessage", function (message){
-	console.log("Create Message", message);
-	
-
-
-	// socket.brodcast.emit // everyone but the user who join from admin "New User Joined"
-
-
-
-	// Emit to everyone on the connection
-	io.emit("newMessage", generateMessage("Admin","Welcome to ChatApp"));
-
-});
+	// Welcome User
+	socket.emit("newMessage", generateMessage("admin","Hello User!"));
 
 	// Broadcast new user login
-	socket.broadcast.emit("newUser",generateMessage("Admin","New User is Online"));
+	socket.broadcast.emit("newMessage",generateMessage("Admin","New User is Online"));
 
+	// createMessage Listener	
+	socket.on("createMessage", (message, callback) => {
+		console.log("Create Message", message);
 
-	// Welcome User
-	socket.emit("welcomeMessage", generateMessage("admin","Hello User!"));
+		// Emit to everyone on the connection
+		io.emit("newMessage", generateMessage(message.from, message.text));	
+		callback("This is from the server")
+	});
 
-	// Diconnect
+	// Diconnect from server
 	socket.on("disconnect", (socket) => {
 		console.log("User is offline");
 	});
