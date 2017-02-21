@@ -18,7 +18,7 @@ io.on("connection", (socket) => {
 	console.log("New user is online");
 
 	// Welcome User
-	socket.emit("newMessage", generateMessage("admin","Hello User!"));
+	socket.emit("newMessage", generateMessage("Admin","Hello User!"));
 
 	// Broadcast new user login
 	socket.broadcast.emit("newMessage",generateMessage("Admin","New User is Online"));
