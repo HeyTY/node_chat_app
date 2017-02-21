@@ -19,23 +19,24 @@ h3 {
 
 button {
   border: none;
-  background: #265f82;
-  color: white;
+  background: #3b5998;
+  color: #ffffff;
   cursor: pointer;
   padding: 10px;
   transition: background .3s ease;
+  border-radius: 2px;
 }
 
 button:hover {
   border: none;
-  background: #1F4C69;
+  background: #8b9dc3;
   color: white;
   padding: 10px;
 }
 
 button:disabled {
   cursor: default;
-  background: #698ea5;
+  background: #8b9dc3;
 }
 
 .centered-form {
@@ -87,16 +88,17 @@ button:disabled {
   overflow-y: scroll;
   width: 260px;
   height: 100vh;
-  background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+  background: #3b5998;
+  /* background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
+  /* background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
+  /* background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
+  /* background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
+  /* background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
+  /* background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
 }
 
 .chat__sidebar h3 {
-  color: #e6eaee;
+  color: #ffffff;
   margin: 10px 20px;
   text-align: left;
 }
@@ -127,7 +129,7 @@ button:disabled {
 }
 
 .chat__footer {
-  background: #e6eaee;
+  background: #dfe3ee;
   display: flex;
   padding: 10px;
   /*height: 60px;*/
