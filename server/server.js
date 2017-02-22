@@ -3,7 +3,8 @@ const http				= require("http");
 const path 				= require("path");
 const socketIO			= require("socket.io");
 
-const {generateMessage, generateLocationMessage} = require("./utils/message")
+const {isRealString}    = require("./utils/validation");
+const {generateMessage, generateLocationMessage} = require("./utils/message");
 const publicPath 		= path.join(__dirname, "../public");
 const port 				= process.env.PORT || 3000;
 const app				= express();
@@ -17,11 +18,28 @@ app.use(express.static("public"))
 io.on("connection", (socket) => {
 	console.log("New user is online");
 
-	// Welcome User
-	socket.emit("newMessage", generateMessage("Admin","Hello User!"));
 
-	// Broadcast new user login
-	socket.broadcast.emit("newMessage",generateMessage("Admin","New User is Online"));
+	// Join chat setup
+	socket.on("join", (params, callback) => {
+		if (!isRealString(params.name) || !isRealString(params.room)) {
+			callback("Name and room name are required")
+		} else {
+
+			socket.join(params.room);
+			// socket.leave
+
+		//io emit -> io.to("Starcraft 2 Fans").emit
+		// socket.broadcast.emit -> socket.broadcast.to("Starcraft 2 Fans").emit
+		// socket.emit	
+
+		// Welcome User
+		socket.emit("newMessage", generateMessage("Admin","Hello User!"));
+
+		// Broadcast new user login
+		socket.broadcast.to(params.room).emit("newMessage",generateMessage("Admin",`${params.name} has joined`));
+			callback();
+		}
+	});
 
 	// createMessage Listener	
 	socket.on("createMessage", (message, callback) => {
