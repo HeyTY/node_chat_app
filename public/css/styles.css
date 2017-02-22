@@ -25,6 +25,7 @@ button {
   padding: 10px;
   transition: background .3s ease;
   border-radius: 2px;
+
 }
 
 button:hover {
@@ -39,22 +40,44 @@ button:disabled {
   background: #8b9dc3;
 }
 
+
+#join-button {
+  border: none;
+  background: linear-gradient(#67ae55, #578843);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  transition: background .3s ease;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#join-button:hover {
+  border: none;
+  background: linear-gradient(#79bc64, #578843);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  transition: background .3s ease;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
 .centered-form {
+  font-family: Lucida;
   display: flex;
   align-items: center;
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background: -moz-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49,84,129,1)), color-stop(100%, rgba(39,107,130,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* ie10+ */
-  background: linear-gradient(325deg, rgba(39,107,130,1) 0%, rgba(49,84,129,1) 100%); /* w3c */
+  background: #3b5998;
 }
 
 .centered-form__form {
-  background: rgba(250, 250, 250, 0.9);
+  background: #edf0f5;
   border: 1px solid #e1e1e1;
   border-radius: 5px;
   padding: 0px 20px;
