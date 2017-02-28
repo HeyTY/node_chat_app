@@ -44,8 +44,8 @@ io.on("connection", (socket) => {
 		// socket.broadcast.emit -> socket.broadcast.to("Starcraft 2 Fans").emit
 		// socket.emit	
 
-		// Welcome User
-		socket.emit("newMessage", generateMessage("Admin","Hello User!"));
+		// Welcome User;
+		socket.emit("newMessage", generateMessage(`Admin: Hello ${params.name}!`));
 
 		// Broadcast new user login
 		socket.broadcast.to(params.room).emit("newMessage",generateMessage("Admin",`${params.name} has joined`));
